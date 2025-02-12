@@ -1,0 +1,135 @@
+
+body {
+    background: linear-gradient(45deg, #1a0f2e 0%, #2d1b40 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.calendar-widget {
+    display: flex;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    transform: perspective(1000px) rotateX(5deg);
+    transition: transform 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.calendar-widget:hover {
+    transform: perspective(1000px) rotateX(0deg) scale(1.02);
+}
+
+.date-section {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.date-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        transparent 100%
+    );
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% { transform: translateX(-100%) translateY(-100%); }
+    100% { transform: translateX(100%) translateY(100%); }
+}
+
+.month-section {
+    /* Option 1: Purple to Pink Gradient */
+    background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+    
+    /* Option 2: Emerald to Teal (Uncomment to use)
+    background: linear-gradient(135deg, #059669 0%, #0D9488 100%); */
+    
+    /* Option 3: Amber to Rose (Uncomment to use)
+    background: linear-gradient(135deg, #D97706 0%, #F43F5E 100%); */
+
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    position: relative;
+}
+
+.month-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(45deg, 
+        rgba(255,255,255,0.1) 0%, 
+        rgba(255,255,255,0) 100%);
+}
+
+.day-number {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1;
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.day-name {
+    font-size: 1.4rem;
+    color: #475569;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.month-year {
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.month-name {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.divider {
+    width: 30px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.5);
+    margin: 10px 0;
+    border-radius: 2px;
+}
+
+@media (max-width: 576px) {
+    .calendar-widget {
+        transform: none;
+        margin: 1rem;
+    }
+    .day-number {
+        font-size: 3rem;
+    }
+    .month-name {
+        font-size: 1.5rem;
+    }
+}
