@@ -30,4 +30,5 @@ https://abhiramn-mern.github.io/mini-calender/
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/calendar-mini-project.git
+   git clone https://github.com/AbhiramN-Mern/mini-calender.git
+
